@@ -10,7 +10,7 @@
 
 int main(void) {
 
-	struct Node *node = newNode(10);
+	/*struct Node *node = newNode(10);
 	add(node, 5);
 	add(node, 7);
 	add(node, 98);
@@ -22,7 +22,7 @@ int main(void) {
 	sortBubble(arr, 6);
 	int yes = testSorted(arr, 6);
 	printf("sorted: %d\n", yes);
-	printArr(arr, 6);
+	printArr(arr, 6);*/
 
 	// 5, 1, 11, 52, 2
 	/*int test[4] = {5, 3, 7, 10};
@@ -41,6 +41,26 @@ int main(void) {
 	for(i = 0; i < 4; i++) {
 		printf("%d\n", test[i]);
 	}*/
+	int val, count = 0;
+	char buf[40];
+	struct Node *node = NULL;
+	struct Node *root = NULL;
+	while (fgets(buf, sizeof buf, stdin) != NULL) {
+		if (sscanf(buf, "%d", &val) != 1) break;
+		if(node == NULL) {
+			node = newNode(val);
+			root = node;
+		}
+		else {
+			add(node, val);
+			node = node->next;
+		}
+		count++;
+	}
+	//printAll(root);
+	int *arr = toArr(root);
+	printArr(arr, count);
+	sortBubble(arr,count);
 
 	return 0;
 }
