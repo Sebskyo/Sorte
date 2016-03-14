@@ -5,9 +5,8 @@ It's designed to be easily usable with UNIX pipes. For example, you can pipe the
 ## How do I install it?
 You'll have to compile it yourself, instructions when I'm nearing a complete program.
 ## License
-> Sorte - a simple sorting program
-> Copyright (C) 2016  Sebastian Elleholm
-
+> Sorte - a simple sorting program | Copyright (C) 2016  Sebastian Vikkelsø Elleholm
+>
 > This program is free software: you can redistribute it and/or modify
 > it under the terms of the GNU General Public License as published by
 > the Free Software Foundation, either version 3 of the License, or

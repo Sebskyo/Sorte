@@ -3,6 +3,8 @@ CFLAGS=-Wall
 
 default: build
 
+nomess: build clean
+
 build: main.o list.o
 	$(CC) $(CFLAGS) -o sorte main.o list.o
 

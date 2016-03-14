@@ -9,7 +9,7 @@
 #include "list.h"
 
 struct Node *newNode(int val) {
-	struct Node *node = malloc(sizeof(struct Node));
+	struct Node *node = (struct Node *) malloc(sizeof(struct Node));
 	node->val = val;
 	node->next = NULL;
 	return node;
@@ -23,29 +23,27 @@ void add(struct Node *node, int val) {
 		node->next = nextNode;
 	}
 }
+
+void toArr(int *arr, struct Node *node, int size) {
+	int i = 0;
+	// transfer elements to array
+	while(node->next != 0) {
+		arr[i] = node->val;
+		node = node->next;
+		i++;
+	}
+	arr[i] = node->val; // apparently the last value of the array would be the pointer to the previous node, but this fixes that
+}
+
 void printAll(struct Node *node) {
 	printf("%d - %ld\n", node->val, (long)node->next);
 	if(node->next != 0) {
 		printAll(node->next);
 	}
 }
-
-int *toArr(struct Node *node) {
-	int i = 0;
-	struct Node *cNode = node;
-	// count elements in list
-	while(cNode->next != 0) {
-		i++;
-		cNode = cNode->next;
+void printArr(int *arr, int size) {
+	int i;
+	for(i = 0; i < size; i++) {
+		printf("%d\n", *(arr+i));
 	}
-	int arr[i];
-	int j = 0;
-	// transfer elements to array
-	while(node->next != 0) {
-		arr[j] = node->val;
-		node = node->next;
-		j++;
-	}
-	arr[j] = node->val; // apparently the last value of the array would be the pointer to the previous node, but this fixes that
-	return arr; // compiler doesn't like this
 }
