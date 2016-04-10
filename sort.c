@@ -21,3 +21,18 @@ void sortBubble(int *arr, int size) {
 		}
 	}
 }
+
+void sortSelect(int *arr, int size) {
+	int i;
+	for(i = 0; i < size-1; i++) {
+		int *e, *m;
+		e = m = &(arr[i]);
+		int j;
+		for(j = i; j < size; j++) {
+			if(arr[j] < *m) m = &(arr[j]);
+		}
+		int t = *e;
+		*e = *m;
+		*m = t;
+	}
+}

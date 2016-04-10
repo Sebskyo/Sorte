@@ -3,7 +3,24 @@
 A sorting program implementing various algorithms in C.
 It's designed to be easily usable with UNIX pipes. For example, you can pipe the results into Plotte, a plotting program.
 ## How do I install it?
-You'll have to compile it yourself, instructions when I'm nearing a complete program.
+### Linux
+It's very simple. When you get a hold of the code (fx. by using `git clone`) run make:
+```
+make
+```
+Or if you don't want any .o files afterwards:
+```
+make nomess
+```
+After that, I recommend you putting the program in /usr/local/bin/ for ease of access.
+```
+chmod +x sorte
+sudo mv sorte /usr/local/bin/sorte
+```
+But you probably knew that already.
+### Anything else
+I don't know. I could imagine a similar process would be used on other UNIX like/based systems (like BSD or OSX).
+I legitimately don't know how to compile C on Windows, but I hear it's overly complicated, so good luck.
 ## License
 > Sorte - a simple sorting program | Copyright (C) 2016  Sebastian Vikkelsø Elleholm
 >
