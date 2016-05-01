@@ -20,7 +20,8 @@
 #include "sort.h"
 
 int main(int argc, char **argv) {
-	int sorter = 0;
+	int sorter = 0; // Chosen sorting algorithm, 0=bubble, 1=select
+	// CLI argument parsing, --help, --version and -s <algorithm>
 	if(argc == 2) {
 		if(strcmp("--help", argv[1]) == 0) {
 			printf("sorte [options]\n\n");
@@ -42,10 +43,12 @@ int main(int argc, char **argv) {
 		sorter = strcmp("select", argv[2]) == 0 ? 1 : 0;
 	}
 
+	// Getting ready to read from stdin
 	int val, count = 0;
 	char buf[40];
 	struct Node *node = NULL;
 	struct Node *root = NULL;
+	// Reading from stdin, if a wrong input is given a segfault happens and that's fine - I'd have it abort anyway.
 	while (fgets(buf, sizeof buf, stdin) != NULL) {
 		if (sscanf(buf, "%d", &val) != 1) break;
 		if(node == NULL) {
@@ -58,11 +61,17 @@ int main(int argc, char **argv) {
 		}
 		count++;
 	}
+
+	// Converting list to array
 	node = root;
 	int *arr = (int *) malloc(count*4);
 	toArr(arr, node, count);
+
+	// Sorting
 	if(sorter == 1) sortSelect(arr, count);
 	else sortBubble(arr, count);
+
+	// Printing
 	printArr(arr, count);
 
 	return 0;

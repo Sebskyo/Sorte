@@ -12,6 +12,7 @@ void sortBubble(int *arr, int size) {
 	while(s) {
 		s = 0;
 		for (i = 1; i < size; i++) {
+			// If current element is less than previous element, swap them
 			if (arr[i] < arr[i - 1]) {
 				t = arr[i];
 				arr[i] = arr[i - 1];
@@ -23,14 +24,15 @@ void sortBubble(int *arr, int size) {
 }
 
 void sortSelect(int *arr, int size) {
-	int i;
+	int i; // counter
 	for(i = 0; i < size-1; i++) {
-		int *e, *m;
-		e = m = &(arr[i]);
-		int j;
+		int *e, *m; // e: current element, m: either smallest element proceeding e or the same as e.
+		e = m = &(arr[i]); // setting e and m
+		int j; // another counter
 		for(j = i; j < size; j++) {
-			if(arr[j] < *m) m = &(arr[j]);
+			if(arr[j] < *m) m = &(arr[j]); // if an element less than m is found, set m to that element
 		}
+		// swap e and m
 		int t = *e;
 		*e = *m;
 		*m = t;
