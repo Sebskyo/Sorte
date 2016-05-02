@@ -28,7 +28,7 @@ int main(int argc, char **argv) {
 			printf("--help\n");
 			printf("\tShow this help message.\n\n");
 			printf("-s [algorithm]\n");
-			printf("\t[algorithm] can either be \"bubble\" or \"select\" (without quotes).\n\n");
+			printf("\t[algorithm] can either be \"bubble\" or \"select\".\n\n");
 			printf("If any arguments are invalid, default (bubble) will be used.\n\n");
 
 			return 0;
